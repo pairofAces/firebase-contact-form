@@ -1,4 +1,6 @@
 import React from 'react'
+import '../App.css';
+
 
 function Contact() {
     return (
@@ -6,18 +8,18 @@ function Contact() {
             <h1>Contact Form</h1>
             <label>
                 Name
-                <input  placeholder="name"/>
             </label>
+            <input  placeholder="name"/>
 
             <label>
                 Email
-                <input  placeholder="email"/>
             </label>
+            <input  placeholder="Email"/>
 
             <label>
                 Message
-                <textarea placeholder="message"></textarea>
             </label>
+            <textarea placeholder="Message"></textarea>
         </form>
     )
 }
