@@ -8,8 +8,11 @@ function Contact() {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
+    const [loader, setLoader] = useState(false);
+
     const submitHandler = (e) => {
         e.preventDefault();
+        setLoader(true)
 
         db.collection('contacts').add({
             name: name,
@@ -17,10 +20,12 @@ function Contact() {
             message: message,
         })
         .then(() => {
-            alert("Your Message has been sent")
+            alert("Your Message has been sent");
+            setLoader(false);
         })
         .catch((error) => {
             alert(error.message);
+            setLoader(false);
         });
 
         setName("");
@@ -58,7 +63,7 @@ function Contact() {
                 onChange={(e) => setMessage(e.target.value)}
             ></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit" style={{ background: loader ? "#ccc" : " rgb(2, 2, 110"}}>Submit</button>
         </form>
     )
 }
